@@ -30,4 +30,32 @@ In this task, we performed initial data exploration and preprocessing to prepare
   `data/filtered_complaints.csv`
   This file will be used for subsequent tasks including embedding generation, topic modeling, and dashboard development.
 
+---
+
+### ✅ **Task 2: Text Chunking, Embedding, and Vector Store Indexing**
+
+This task focused on transforming cleaned complaint narratives into a structured vector format optimized for semantic search and retrieval.
+
+#### 🧱 Text Chunking
+
+* Implemented text chunking using **LangChain’s `RecursiveCharacterTextSplitter`** to split long narratives into smaller, overlapping chunks.
+* Experimented with various `chunk_size` and `chunk_overlap` settings to balance semantic coherence and chunk coverage.
+* Chosen configuration: `chunk_size=500`, `chunk_overlap=50`.
+
+#### 🔍 Embedding Generation
+
+* Selected and used the **`all-MiniLM-L6-v2`** model from `sentence-transformers` for its efficiency and strong performance on semantic tasks.
+* Generated a 384-dimensional embedding for each text chunk.
+
+#### 📦 Vector Indexing
+
+* Used **FAISS** to build a vector store for fast and scalable similarity search.
+* Stored metadata for each chunk (e.g., `Complaint ID`, `Product`, `Issue`) in a separate file to maintain traceability.
+
+#### 💾 Output Files
+
+* `data/complaints_index.faiss` – FAISS index of chunk embeddings
+
+These outputs will power semantic search, clustering, and retrieval-augmented analysis in subsequent tasks.
+
 
