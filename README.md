@@ -93,3 +93,35 @@ This task focused on implementing the core components of a **Retrieval-Augmented
 * A working RAG pipeline capable of answering product team questions with traceable complaint excerpts
 * Evaluation results to guide prompt tuning, retriever quality, and future improvements
 
+---
+
+### ✅ **Task 4: Creating an Interactive Chat Interface**
+
+This task focused on building a simple, user-friendly interface that allows non-technical stakeholders at CrediTrust (like product managers, support, and compliance teams) to interact with the RAG system without needing to write code.
+
+#### 💬 Streamlit Interface
+
+* Built an interactive web application using **Streamlit**.
+* Users can enter natural language questions and receive answers grounded in real customer complaints.
+
+#### 🔍 Retrieval & Generation Workflow
+
+* When a user submits a question:
+
+  * The system embeds the question using the same model from Task 2 (`all-MiniLM-L6-v2`).
+  * It retrieves the top-5 most relevant complaint chunks from the FAISS vector store.
+  * It feeds those chunks into a **prompt template** and sends the query to an LLM (e.g., Mistral) to generate a contextual answer.
+
+#### 🔒 Enhancing Trust and Usability
+
+* The interface displays **retrieved source chunks** (complaint excerpts) **below the answer** using collapsible sections, allowing users to:
+
+  * Verify where the answer came from
+  * Gain confidence in the system’s reasoning
+  * Build trust in the results
+
+#### 🧾 Outcome
+
+* A fully functional internal tool that empowers CrediTrust teams to ask targeted questions and get explainable, evidence-backed answers in seconds.
+* This interface bridges the gap between complex NLP models and real business users.
+
