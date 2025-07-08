@@ -58,4 +58,38 @@ This task focused on transforming cleaned complaint narratives into a structured
 
 These outputs will power semantic search, clustering, and retrieval-augmented analysis in subsequent tasks.
 
+---
+
+### ✅ **Task 3: Building the RAG Core Logic and Evaluation**
+
+This task focused on implementing the core components of a **Retrieval-Augmented Generation (RAG)** system to allow internal stakeholders to query customer complaint data and receive relevant, evidence-based answers.
+
+#### 🔍 Retriever Implementation
+
+* Created a function that:
+
+  * Embeds user questions using the same model as the complaint chunks (`all-MiniLM-L6-v2`)
+  * Performs a similarity search using a FAISS index
+  * Retrieves the top-`k` most relevant complaint chunks (`k=5`)
+
+#### 💬 Generator Implementation
+
+* Designed a robust prompt template to guide the LLM:
+
+  * Instructs the model to act as a financial analyst assistant
+  * Encourages strict adherence to provided context
+  * Gracefully handles insufficient context
+* Combined the user’s question, retrieved chunks, and prompt into a complete input
+* Used a locally hosted or Hugging Face model (e.g., Mistral) to generate grounded answers
+
+#### 📊 Qualitative Evaluation
+
+* Created a list of 10 representative questions based on real user needs
+* Ran the full RAG pipeline for each question
+* Collected results in a structured Markdown evaluation table including: Question
+  
+#### 🧾 Outcome
+
+* A working RAG pipeline capable of answering product team questions with traceable complaint excerpts
+* Evaluation results to guide prompt tuning, retriever quality, and future improvements
 
